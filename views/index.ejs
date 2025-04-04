@@ -1,0 +1,11 @@
+<%- include('partials/header', { pageTitle: 'Home', siteName: portfolio.name }) %>
+
+<h2>About Me</h2>
+<p><strong><%= portfolio.name %></strong> - <%= portfolio.title %></p>
+<p><%= portfolio.bio %></p>
+
+<h3>Contact</h3>
+<p>Email: <a href="mailto:<%= portfolio.contact.email %>"><%= portfolio.contact.email %></a></p>
+<p>LinkedIn: <a href="<%= portfolio.contact.linkedin %>" target="_blank">Profile</a></p>
+
+<%- include('partials/footer', { siteAuthor: portfolio.name }) %>

@@ -1,0 +1,26 @@
+{
+    "name": "Alex Doe",
+    "title": "Node.js Developer",
+    "bio": "Passionate about building efficient and scalable web applications with Node.js. Exploring the power of asynchronous programming.",
+    "contact": {
+      "email": "alex.doe@example.com",
+      "linkedin": "https://linkedin.com/in/alexdoe-example"
+    },
+    "projects": [
+      {
+        "title": "Project Alpha",
+        "description": "A web app built with Express and EJS, focusing on server-side rendering.",
+        "url": "#"
+      },
+      {
+        "title": "Data Visualizer",
+        "description": "Using Node.js to process data streams and visualize them.",
+        "url": "#"
+      },
+      {
+        "title": "Simple API",
+        "description": "A RESTful API created using Node.js for a mobile application.",
+        "url": "#"
+      }
+    ]
+  }

@@ -1,0 +1,44 @@
+<%- include('partials/header', { pageTitle: 'Node.js Features', siteName: 'Node Features Demo' }) %>
+
+<h2>Essential Node.js Features Used in This App</h2>
+<p>This simple portfolio website demonstrates several core concepts of Node.js:</p>
+
+<ul class="feature-list">
+    <li>
+        <strong>Asynchronous I/O (Non-blocking):</strong>
+        When you load the Home or Projects page, the server reads data from the <code>data/portfolio.json</code> file. It uses <code>fs.promises.readFile</code>, which is asynchronous. This means Node.js doesn't stop everything while waiting for the file; it can handle other tasks (like another user's request) in the meantime. This makes the server efficient.
+        <em>(Check <code>server.js</code> - look for <code>fs.promises.readFile</code>)</em>
+    </li>
+    <li>
+        <strong>Modules (CommonJS <code>require</code>):</strong>
+        The application code in <code>server.js</code> uses <code>require('express')</code>, <code>require('path')</code>, and <code>require('fs/promises')</code> to import functionality from external packages (Express) or Node.js built-in modules (path, fs). This keeps the code organized.
+        <em>(Check the top of <code>server.js</code>)</em>
+    </li>
+    <li>
+        <strong>NPM (Node Package Manager):</strong>
+        This project uses NPM to manage its dependencies (like Express and EJS). The <code>package.json</code> file lists these dependencies. You used <code>npm install</code> to download them into the <code>node_modules</code> folder.
+        <em>(Check <code>package.json</code>)</em>
+    </li>
+    <li>
+        <strong>Event Loop:</strong>
+        You can't see it directly, but the Event Loop is constantly running in the background. It manages and delegates tasks like handling your incoming web requests (e.g., visiting '/projects') and executing callbacks when asynchronous operations (like reading the file) complete. It's key to Node.js's concurrency model.
+        <em>(Conceptual - Underlies all async operations)</em>
+    </li>
+    <li>
+        <strong>HTTP Server & Routing (via Express):</strong>
+        Express is used to create the web server listening for requests. The <code>app.get('/', ...)</code>, <code>app.get('/projects', ...)</code>, etc., in <code>server.js</code> define the routes. When you navigate to these URLs in your browser, Express matches the path and runs the corresponding function to send back the HTML page.
+        <em>(Check <code>server.js</code> - look for <code>express()</code>, <code>app.get()</code>, <code>app.listen()</code>)</em>
+    </li>
+     <li>
+        <strong>File System (`fs`) Module:</strong>
+        The application directly interacts with the file system using the built-in <code>fs</code> module (specifically, <code>fs.promises</code> for async operations) to read the contents of <code>portfolio.json</code>.
+        <em>(Check <code>server.js</code> - look for <code>require('fs/promises')</code> and its usage)</em>
+    </li>
+    <li>
+        <strong>Middleware (Express):</strong>
+        <code>app.use(express.static('public'))</code> is middleware that tells Express to automatically serve files from the 'public' directory (like the CSS file). <code>app.set('view engine', 'ejs')</code> configures EJS as the templating engine. Middleware functions process requests before they reach your route handlers.
+        <em>(Check <code>server.js</code> - look for <code>app.use()</code> and <code>app.set()</code>)</em>
+    </li>
+</ul>
+
+<%- include('partials/footer', { siteAuthor: 'Node.js Demo App' }) %>
